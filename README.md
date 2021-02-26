@@ -35,7 +35,7 @@ Per consentire un'analisi più precisa e accurata, ho effettuato una revisione d
 
 Evoluti i dati del dataset nelle modalità descritte sopra, ho allora creato un nuovo dataset contenente la lista degli utenti con, per ogni utente, i dati di tutti gli allenamenti da lui effettuati. I dati degli allenamenti li ho rielaborati così che rappresentassero un documento testuale in cui, ogni parola/frase, rappresentasse i dati di un singolo allenamento. Ho difatti concatenato, per ogni allenamento, i dati numerici ad esso associati per poi concatenarli con quelli degli altri allenamenti così da ottenenre, per ogni utente, un documento contenente le info di tutti gli allenamenti.
 
-Ho poi utilizzato TF-IDF e la cosine similarity per rilevare la distanza tra i vari utenti così da poter restituire, a partire da un utente, la lista degli utenti ad esso più simili. (i dettaglio del metodo utilizzato e dell'implementazione sono presenti nei commenti nel codice)
+Ho poi utilizzato TF-IDF e la cosine similarity per rilevare la distanza tra i vari utenti così da poter restituire, a partire da un utente, la lista degli utenti ad esso più simili. (il dettaglio del metodo utilizzato e dell'implementazione sono presenti nei commenti del codice)
 
 ## Risultati ottenuti e sviluppi futuri
 
