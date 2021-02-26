@@ -31,4 +31,18 @@ Per consentire un'analisi più precisa e accurata, ho effettuato una revisione d
 * rilevazione della durata totale a partire dai timestamp campionati durante l'allenamento;
 * rilevazione dalla velocità media a partire dalla distanza totale e dalla durata dell'allenamento.
 
-## Trasformazione 
+## Approccio tramite TFIDF e Cosine Similarity 
+
+Evoluti i dati del dataset nelle modalità descritte sopra, ho allora creato un nuovo dataset contenente la lista degli utenti con, per ogni utente, i dati di tutti gli allenamenti da lui effettuati. I dati degli allenamenti li ho rielaborati così che rappresentassero un documento testuale in cui, ogni parola/frase, rappresentasse i dati di un singolo allenamento. Ho difatti concatenato, per ogni allenamento, i dati numerici ad esso associati per poi concatenarli con quelli degli altri allenamenti così da ottenenre, per ogni utente, un documento contenente le info di tutti gli allenamenti.
+
+Ho poi utilizzato TF-IDF e la cosine similarity per rilevare la distanza tra i vari utenti così da poter restituire, a partire da un utente, la lista degli utenti ad esso più simili. (i dettaglio del metodo utilizzato e dell'implementazione sono presenti nei commenti nel codice)
+
+## Risultati ottenuti e sviluppi futuri
+
+Per verificare l'efficacia del modello ho quindi creato dei grafici che rappresentassero l'andamento dei dati associati ai vari allenamenti per ogni utente. Essendo i valori di ogni allenamento numerici, ho sommato tali valori così da ottenere un valore numerico per ogni allenamento di ogni utente. Inserendo tali valori in un grafico, ho quindi potuto osservare l'andamento di tali valori per ogni utente riuscendo quindi a profilare, anche graficamente, ogni utente. In sostanza quindi l'i-esimo punto nel grafico rappresenta la somma dei valori individuati per quell'i-esimo allenamento.
+
+Una volta restituita dal sistema la lista degli utenti simili ad un certo utente ho quindi costruito il grafico associato all'utente selezionato stesso e quelli associati agli utenti ad esso simili restituiti dal sistema. Ho notato come i grafici avessero effettivamente un andamento molto simile confermando quindi che il sistema avesse restituito risultati soddisfacenti.
+
+Come sviluppi futuri, magari per il progetto di Machine Learning, potrebbero esserci le seguenti evolutive:
+* riduzione del rumore sui dati presenti nel dataset
+* data la lista di utenti simili, effettuare una predizione degli allenamenti, appartenenti a tali utenti, nei quali l'utente selzionato per l'analisi possa ottenere risultati migliori (in termini di velocità media, frequenza cardiaca media, tempo totale)
